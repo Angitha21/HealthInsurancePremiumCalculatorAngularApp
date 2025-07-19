@@ -1,0 +1,12 @@
+<div class="premium-summary">
+  <h2>Premium Summary</h2>
+
+  <div *ngIf="premiumResponse.basePremium ">
+    <p><strong>Base Premium:</strong> {{ premiumResponse.basePremium }}</p>
+    <p><strong>Total Premium:</strong> {{ premiumResponse.totalPremium }}</p>
+  </div>
+
+  <div *ngIf="!premiumResponse.basePremium">
+    <p>No premium data available.</p>
+  </div>
+</div>

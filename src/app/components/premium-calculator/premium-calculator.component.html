@@ -1,0 +1,37 @@
+<div>
+
+<h1>Health Insurance Premium Calculator</h1>
+<form class="add-form" (ngSubmit)="onSubmit()">
+
+    <div class="form-control">
+<label for="Age">Age</label>
+<input type="number" [(ngModel)]="premiumRequest.Age"  name="Age"  id="Age" placeholder="Add Age"/>
+    </div>
+
+       <div class="form-control">
+<label for="day">Coverage Amount</label>
+<input type="text" [(ngModel)]="premiumRequest.CoverageAmount"  name="CoverageAmount" id="CoverageAmount" placeholder="Add Coverage Amount"/>
+    </div>
+
+    <div class="form-control">
+      <label for="Gender">Gender</label>
+      <select [(ngModel)]="premiumRequest.Gender" name="Gender" id="Gender">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+       <div class="form-control form-control-check">
+<label for="UsesTobacco">Tobacco Usage</label>
+<input type="checkbox" [(ngModel)]="premiumRequest.UsesTobacco"  name="UsesTobacco"  id="UsesTobacco"/>
+    </div>
+
+    <input type="submit" value="Calculate" class="btn"/>
+</form>
+</div>
+
+<app-premium-summary [premiumResponse]="premiumResponse"></app-premium-summary>
+
+
