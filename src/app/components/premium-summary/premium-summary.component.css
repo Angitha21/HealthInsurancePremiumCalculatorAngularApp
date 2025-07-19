@@ -1,0 +1,26 @@
+/* Premium Summary Styles */
+.premium-summary {
+  max-width: 500px;
+  margin: 32px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: left;
+}
+.premium-summary h2 {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.premium-summary p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.premium-summary strong {
+  color: #1976d2;
+}
+.premium-summary .no-data {
+  color: #d32f2f;
+  text-align: center;
+  margin-top: 10px;
+}

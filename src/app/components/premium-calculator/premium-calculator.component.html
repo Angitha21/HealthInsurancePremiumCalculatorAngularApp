@@ -1,21 +1,26 @@
 <div>
 
 <h1>Health Insurance Premium Calculator</h1>
-<form class="add-form" (ngSubmit)="onSubmit()">
+<form class="add-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
 
     <div class="form-control">
-<label for="Age">Age</label>
-<input type="number" [(ngModel)]="premiumRequest.Age"  name="Age"  id="Age" placeholder="Add Age"/>
+      <label for="Age">Age</label>
+      <input type="number" [(ngModel)]="premiumRequest.Age" name="Age" id="Age" placeholder="Add Age" required min="18" #age="ngModel"/>
+      <div *ngIf="age.invalid" class="error">
+        <span *ngIf="age.errors?.required">Age is required.</span>
+        <span *ngIf="age.errors?.min">Age must be at least 18.</span>
+      </div>
     </div>
 
-       <div class="form-control">
-<label for="day">Coverage Amount</label>
-<input type="text" [(ngModel)]="premiumRequest.CoverageAmount"  name="CoverageAmount" id="CoverageAmount" placeholder="Add Coverage Amount"/>
+    <div class="form-control">
+      <label for="CoverageAmount">Coverage Amount</label>
+      <input type="text" [(ngModel)]="premiumRequest.CoverageAmount" name="CoverageAmount" id="CoverageAmount" placeholder="Add Coverage Amount" required/>
     </div>
 
     <div class="form-control">
       <label for="Gender">Gender</label>
-      <select [(ngModel)]="premiumRequest.Gender" name="Gender" id="Gender">
+      <select [(ngModel)]="premiumRequest.Gender" name="Gender" id="Gender" required>
         <option value="">Select Gender</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
@@ -23,9 +28,9 @@
       </select>
     </div>
 
-       <div class="form-control form-control-check">
-<label for="UsesTobacco">Tobacco Usage</label>
-<input type="checkbox" [(ngModel)]="premiumRequest.UsesTobacco"  name="UsesTobacco"  id="UsesTobacco"/>
+    <div class="form-control form-control-check">
+      <label for="UsesTobacco">Tobacco Usage</label>
+      <input type="checkbox" [(ngModel)]="premiumRequest.UsesTobacco" name="UsesTobacco" id="UsesTobacco" />
     </div>
 
     <input type="submit" value="Calculate" class="btn"/>
